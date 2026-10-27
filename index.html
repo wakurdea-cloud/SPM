@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Project Charter - Lost and Found with AI</title>
+
+<style>
+
+/* =====================================================
+   PAGE SETUP
+===================================================== */
+
+@page {
+    size: A4 portrait;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    font-family: "Times New Roman", Times, serif;
+    color: #000000;
+}
+
+
+/* =====================================================
+   A4 PAGE
+===================================================== */
+
+.page {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    padding: 9mm 11mm;
+    background: #ffffff;
+}
+
+
+/* =====================================================
+   MAIN CHARTER BOX
+===================================================== */
+
+.charter {
+    width: 100%;
+    height: 100%;
+    border: 1.3px solid #4f81bd;
+    background: #ffffff;
+    padding: 3mm;
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+h1 {
+    margin: 0;
+    padding: 4px 0;
+
+    text-align: center;
+
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 1;
+
+    background: #9dc3e6;
+    border: 1px solid #4f81bd;
+}
+
+.project-name {
+    margin: 2px 0 4px 0;
+    padding: 0;
+
+    text-align: center;
+
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1.05;
+}
+
+
+/* =====================================================
+   COMMON TABLE
+===================================================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+td,
+th {
+    border: 1px solid #777777;
+    padding: 2px 4px;
+
+    font-size: 8px;
+    line-height: 1.05;
+
+    vertical-align: top;
+}
+
+
+/* =====================================================
+   PROJECT INFORMATION
+===================================================== */
+
+.info {
+    width: 100%;
+}
+
+.info td {
+    height: 19px;
+}
+
+.info .label {
+    width: 16%;
+    font-weight: bold;
+    background: #d9eaf7;
+}
+
+.info .value {
+    width: 34%;
+    background: #ffffff;
+}
+
+
+/* =====================================================
+   SECTION HEADINGS
+===================================================== */
+
+.section-title {
+    width: 100%;
+
+    margin-top: 4px;
+    margin-bottom: 2px;
+
+    padding: 3px 0;
+
+    text-align: center;
+
+    font-size: 10.5px;
+    font-weight: bold;
+    line-height: 1;
+
+    background: #b7d98a;
+    border: 1px solid #777777;
+}
+
+
+/* =====================================================
+   PURPOSE & GOALS
+===================================================== */
+
+.purpose {
+    width: 100%;
+
+    padding: 3px 5px;
+
+    border-left: 1px solid #777777;
+    border-right: 1px solid #777777;
+    border-bottom: 1px solid #777777;
+
+    background: #ffffff;
+
+    font-size: 8px;
+    line-height: 1.05;
+}
+
+.purpose p {
+    margin: 0 0 2px 0;
+    padding: 0;
+}
+
+.goals {
+    columns: 2;
+    column-gap: 28px;
+
+    margin: 2px 0 0 0;
+    padding-left: 18px;
+}
+
+.goals li {
+    margin: 0;
+    padding: 0;
+
+    font-size: 7.8px;
+    line-height: 1.03;
+
+    break-inside: avoid;
+}
+
+
+/* =====================================================
+   SCOPE
+===================================================== */
+
+.scope {
+    width: 100%;
+}
+
+.scope th {
+    height: 20px;
+
+    text-align: center;
+    vertical-align: middle;
+
+    font-size: 9px;
+    font-weight: bold;
+
+    background: #b7d98a;
+}
+
+.scope td {
+    width: 50%;
+    height: 79px;
+
+    padding: 3px 6px;
+
+    background: #ffffff;
+}
+
+.scope ul {
+    margin: 0;
+    padding-left: 15px;
+}
+
+.scope li {
+    margin: 0;
+    padding: 0;
+
+    font-size: 7.7px;
+    line-height: 1.02;
+}
+
+
+/* =====================================================
+   TECHNOLOGIES
+===================================================== */
+
+.tech {
+    width: 100%;
+}
+
+.tech th {
+    height: 19px;
+
+    text-align: center;
+    vertical-align: middle;
+
+    font-size: 8px;
+    font-weight: bold;
+
+    background: #d9eaf7;
+}
+
+.tech td {
+    height: 25px;
+
+    text-align: center;
+    vertical-align: middle;
+
+    font-size: 7.7px;
+
+    background: #ffffff;
+}
+
+
+/* =====================================================
+   TIMELINE
+===================================================== */
+
+.timeline {
+    width: 100%;
+}
+
+.timeline th {
+    height: 19px;
+
+    text-align: center;
+    vertical-align: middle;
+
+    font-size: 8px;
+    font-weight: bold;
+
+    background: #d9eaf7;
+}
+
+.timeline td {
+    height: 17px;
+
+    vertical-align: middle;
+
+    font-size: 7.5px;
+
+    background: #ffffff;
+}
+
+.timeline th:nth-child(1),
+.timeline td:nth-child(1) {
+    width: 29%;
+}
+
+.timeline th:nth-child(2),
+.timeline td:nth-child(2) {
+    width: 18%;
+
+    text-align: center;
+}
+
+.timeline th:nth-child(3),
+.timeline td:nth-child(3) {
+    width: 53%;
+}
+
+
+/* =====================================================
+   DELIVERABLES
+===================================================== */
+
+.deliverables {
+    columns: 2;
+    column-gap: 28px;
+
+    margin: 0;
+
+    padding: 3px 5px 3px 20px;
+
+    border-left: 1px solid #777777;
+    border-right: 1px solid #777777;
+    border-bottom: 1px solid #777777;
+
+    background: #ffffff;
+}
+
+.deliverables li {
+    margin: 0;
+    padding: 0;
+
+    font-size: 7.8px;
+    line-height: 1.03;
+
+    break-inside: avoid;
+}
+
+
+/* =====================================================
+   APPROVAL
+===================================================== */
+
+.approval {
+    width: 100%;
+}
+
+.approval td {
+    height: 20px;
+
+    vertical-align: middle;
+
+    font-size: 8px;
+
+    background: #ffffff;
+}
+
+.approval td:nth-child(1),
+.approval td:nth-child(3) {
+    width: 16%;
+
+    font-weight: bold;
+
+    background: #d9eaf7;
+}
+
+.approval td:nth-child(2),
+.approval td:nth-child(4) {
+    width: 34%;
+}
+
+
+/* =====================================================
+   PRINT
+===================================================== */
+
+@media print {
+
+    html,
+    body {
+        width: 210mm;
+        height: 297mm;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .page {
+        width: 210mm;
+        height: 297mm;
+        margin: 0;
+        padding: 9mm 11mm;
+    }
+
+    .charter {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="page">
+
+<div class="charter">
+
+
+<!-- =====================================================
+     TITLE
+===================================================== -->
+
+<h1>PROJECT CHARTER</h1>
+
+<div class="project-name">
+    Lost and Found with AI
+</div>
+
+
+<!-- =====================================================
+     PROJECT INFORMATION
+===================================================== -->
+
+<table class="info">
+
+<tr>
+
+<td class="label">
+    Project Title:
+</td>
+
+<td class="value">
+    Lost and Found with AI
+</td>
+
+<td class="label">
+    Prepared By:
+</td>
+
+<td class="value">
+    Akshata Vakurde
+</td>
+
+</tr>
+
+
+<tr>
+
+<td class="label">
+    Project Guide:
+</td>
+
+<td class="value">
+    Vaishali Mam
+</td>
+
+<td class="label">
+    Department:
+</td>
+
+<td class="value">
+    Information Technology
+</td>
+
+</tr>
+
+</table>
+
+
+<!-- =====================================================
+     PURPOSE & GOALS
+===================================================== -->
+
+<div class="section-title">
+    Purpose &amp; Goals
+</div>
+
+<div class="purpose">
+
+<p>
+<b>Purpose:</b>
+Lost and Found with AI is a web-based platform designed to help
+users report lost and found items and identify possible matches
+using item descriptions, images and location information.
+</p>
+
+<b>Goals:</b>
+
+<ul class="goals">
+
+<li>Secure user registration and login</li>
+
+<li>Report lost items</li>
+
+<li>Report found items</li>
+
+<li>Store item information in database</li>
+
+<li>AI-based item matching</li>
+
+<li>Compare item descriptions and images</li>
+
+<li>Use location information for matching</li>
+
+<li>Display possible matches</li>
+
+<li>Provide match confidence information</li>
+
+<li>Send match notifications</li>
+
+<li>Allow users to submit claims</li>
+
+<li>Accept or reject claims</li>
+
+<li>Communication after approval</li>
+
+<li>User dashboard and reports</li>
+
+</ul>
+
+</div>
+
+
+<!-- =====================================================
+     SCOPE
+===================================================== -->
+
+<div class="section-title">
+    Scope
+</div>
+
+<table class="scope">
+
+<tr>
+
+<th>
+    In Scope
+</th>
+
+<th>
+    Out of Scope
+</th>
+
+</tr>
+
+
+<tr>
+
+<td>
+
+<ul>
+
+<li>User registration and login</li>
+
+<li>Lost item reporting</li>
+
+<li>Found item reporting</li>
+
+<li>Item image upload</li>
+
+<li>Item description</li>
+
+<li>Location information</li>
+
+<li>AI-based matching</li>
+
+<li>Match results</li>
+
+<li>Match confidence</li>
+
+<li>Notifications</li>
+
+<li>Claim management</li>
+
+<li>Accept / Reject Claim</li>
+
+<li>User dashboard</li>
+
+<li>Profile management</li>
+
+<li>Communication after approval</li>
+
+</ul>
+
+</td>
+
+
+<td>
+
+<ul>
+
+<li>Guaranteed recovery of every lost item</li>
+
+<li>Physical delivery of recovered items</li>
+
+<li>Real-time GPS tracking</li>
+
+<li>Direct police investigation</li>
+
+<li>Courier or delivery service</li>
+
+<li>Financial transactions</li>
+
+<li>Government identity verification</li>
+
+<li>24/7 customer support</li>
+
+<li>Guaranteed AI matching accuracy</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+</table>
+
+
+<!-- =====================================================
+     TECHNOLOGIES
+===================================================== -->
+
+<div class="section-title">
+    Technologies
+</div>
+
+<table class="tech">
+
+<tr>
+
+<th>
+    Frontend
+</th>
+
+<th>
+    Backend
+</th>
+
+<th>
+    Database
+</th>
+
+<th>
+    AI / API
+</th>
+
+<th>
+    Tools
+</th>
+
+</tr>
+
+
+<tr>
+
+<td>
+    HTML, CSS,<br>
+    JavaScript
+</td>
+
+<td>
+    Python,<br>
+    Flask
+</td>
+
+<td>
+    MySQL
+</td>
+
+<td>
+    AI-Based<br>
+    Matching
+</td>
+
+<td>
+    VS Code,<br>
+    Git/GitHub
+</td>
+
+</tr>
+
+</table>
+
+
+<!-- =====================================================
+     TIMELINE
+===================================================== -->
+
+<div class="section-title">
+    Timeline (90 Days)
+</div>
+
+<table class="timeline">
+
+<tr>
+
+<th>
+    Phase
+</th>
+
+<th>
+    Days
+</th>
+
+<th>
+    Activities
+</th>
+
+</tr>
+
+
+<tr>
+
+<td>
+    Planning &amp; Requirements
+</td>
+
+<td>
+    Day 1 – 15
+</td>
+
+<td>
+    Requirement gathering and project analysis
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+    UI/UX &amp; Database Design
+</td>
+
+<td>
+    Day 16 – 30
+</td>
+
+<td>
+    Interface design and database development
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+    Development
+</td>
+
+<td>
+    Day 31 – 60
+</td>
+
+<td>
+    Core modules and AI matching
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+    Testing &amp; Integration
+</td>
+
+<td>
+    Day 61 – 75
+</td>
+
+<td>
+    Testing, debugging and integration
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+    Finalization
+</td>
+
+<td>
+    Day 76 – 90
+</td>
+
+<td>
+    Documentation and final submission
+</td>
+
+</tr>
+
+</table>
+
+
+<!-- =====================================================
+     DELIVERABLES
+===================================================== -->
+
+<div class="section-title">
+    Deliverables
+</div>
+
+<ul class="deliverables">
+
+<li>Lost and Found web application</li>
+
+<li>User registration and login</li>
+
+<li>Lost item reporting</li>
+
+<li>Found item reporting</li>
+
+<li>Item image and description</li>
+
+<li>AI-based matching</li>
+
+<li>Match results</li>
+
+<li>Notifications</li>
+
+<li>Claim management</li>
+
+<li>Accept / Reject Claim</li>
+
+<li>User dashboard</li>
+
+<li>Profile management</li>
+
+<li>Communication after approval</li>
+
+<li>MySQL database and documentation</li>
+
+</ul>
+
+
+<!-- =====================================================
+     APPROVAL
+===================================================== -->
+
+<div class="section-title">
+    Approval
+</div>
+
+<table class="approval">
+
+<tr>
+
+<td>
+    Prepared By:
+</td>
+
+<td>
+    Akshata Vakurde
+</td>
+
+<td>
+    Project Guide:
+</td>
+
+<td>
+    Vaishali Mam
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+    Date:
+</td>
+
+<td>
+    __________________
+</td>
+
+<td>
+    Signature:
+</td>
+
+<td>
+    __________________
+</td>
+
+</tr>
+
+</table>
+
+
+</div>
+
+</div>
+
+</body>
+</html>
